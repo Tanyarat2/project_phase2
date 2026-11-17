@@ -1,0 +1,104 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.2, pytest-9.2.0, pluggy-1.7.0 -- /Users/mn/Desktop/G02-UI-testing/.venv/bin/python
+cachedir: .pytest_cache
+metadata: {'Python': '3.12.2', 'Platform': 'macOS-26.2-arm64-arm-64bit', 'Packages': {'pytest': '9.2.0', 'pluggy': '1.7.0'}, 'Plugins': {'metadata': '3.1.1', 'html': '4.2.0'}, 'JAVA_HOME': '/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home'}
+rootdir: /Users/mn/Desktop/G02-UI-testing
+configfile: pytest.ini
+testpaths: .
+plugins: metadata-3.1.1, html-4.2.0
+collecting ... collected 3 items
+
+test_tc_sys_01_coupon_checkout.py::test_tc_sys_01_coupon_guest_checkout 
+RUNID=20261117-172533  product=G02-Test-Watch-20261117-172533  coupon=g02save10-20261117-172533
+  Step 1: staff logs in
+  Step 2: Products menu
+  Step 3: Add New Product
+  Step 4: fill product data
+  Step 5: publish product
+  Step 6: product in All Products
+  Step 7: Add new coupon page
+  Step 8: fill coupon
+  Step 9: publish coupon
+  Step 10: coupon in Coupons list
+  Step 11: guest opens the shop
+  Step 12: search for the product
+  Step 13: quantity 0 is blocked
+    browser message: 'Value must be greater than or equal to 1.'
+  Step 14: add quantity 2
+  Step 15: cart shows 1 line, qty 2, ฿1,000.00
+  Step 16: invalid coupon rejected
+    coupon error: 'Coupon "g02-invalid" cannot be applied because it does not exist.'
+  Step 17: valid coupon applied
+  Step 18: same coupon again rejected
+    coupon error: 'Coupon code "g02save10-20261117-172533" has already been applied.'
+  Step 19: checkout page
+  Step 20: browser Back returns to the cart
+  Step 21: empty Town/City is rejected
+    city error: 'Please enter a valid town / city'
+  Step 22: order placed
+  Step 23: order number 698
+  Step 24: WooCommerce > Orders
+  Step 25: open the order
+  Step 26: coupon, total and payment method
+  Step 27: stock is now 8
+  Step 28: coupon used once
+  Step 29: mark order Completed
+  Step 30: guest refreshes the confirmation page
+PASSED
+test_tc_sys_02_stock_limit_cancel.py::test_tc_sys_02_stock_limit_and_cancel 
+RUNID=20261117-172623  product=G02-Limited-Stock-Product-20261117-172623
+  Step 1: staff logs in
+  Step 2: Products menu
+  Step 3: Add New Product
+  Step 4: fill product data (stock 3, Accessories)
+  Step 5: publish product
+  Step 6: product in All Products
+  Step 7: guest opens the shop
+  Step 8: Accessories category, Sort by latest
+  Step 9: product page shows 3 in stock
+  Step 10: quantity 4 is blocked
+    browser message: 'Value must be less than or equal to 3.'
+  Step 11: add quantity 2
+  Step 12: cart shows qty 2, ฿600.00
+  Step 13: quantity 0 in the cart resets to 1
+  Step 14: quantity back to 2
+  Step 15: checkout page
+  Step 16: billing details + Cash on delivery
+  Step 17: place order
+  Step 18: order number 700
+  Step 19: WooCommerce > Orders
+  Step 20: open the order
+  Step 21: stock is now 1
+  Step 22: open the order again
+  Step 23: cancel the order
+  Step 24: stock restored to 3
+  Step 25: order list shows Cancelled, details unchanged
+  Step 26: guest refreshes the confirmation page
+PASSED
+test_tc_sys_03_review_moderation.py::test_tc_sys_03_review_moderation 
+RUNID=20261117-172706  product=G02-Review-Test-Product-20261117-172706
+  Step 1: staff logs in
+  Step 2: Products menu
+  Step 3: Add New Product
+  Step 4: fill product data
+  Step 5: publish product
+  Step 6: product in All Products
+  Step 7: guest opens the shop
+  Step 8: open the product
+  Step 9: Reviews tab is empty
+  Step 10: submit without a rating
+    popup: 'Please select a rating'
+  Step 11: 5 stars + invalid email
+  Step 12: browser Back
+  Step 13: valid review
+  Step 14: review marked as awaiting, count still 0
+  Step 15: Products > Reviews
+    counts before: {'pending': 3, 'approved': 11}
+  Step 16: review is in Pending
+  Step 17: approve it
+    counts after: {'pending': 2, 'approved': 12}
+  Step 18: review is in Approved
+  Step 19: guest refreshes the product page
+PASSED
+
+======================== 3 passed in 112.33s (0:01:52) =========================
