@@ -1,0 +1,24 @@
+Choice 1 WooCommerce API testing
+Started: 2026-11-17T19:02:08+07:00
+
+================================================= test session starts =================================================
+platform win32 -- Python 3.13.5, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\User\AppData\Local\Programs\Python\Python313\python.exe
+rootdir: C:\Users\User\Documents\HW Ploy\Validation\project phase 2\API testing
+collecting ... collected 12 items
+
+test_create_product.py::test_c01_create_with_unique_sku PASSED                                                   [  8%]
+test_create_product.py::test_c02_reject_duplicate_sku PASSED                                                     [ 16%]
+test_create_product.py::test_c03_reject_invalid_type PASSED                                                      [ 25%]
+test_get_product.py::test_g01_get_existing_product PASSED                                                        [ 33%]
+test_get_product.py::test_g02_get_deleted_product PASSED                                                         [ 41%]
+test_get_product.py::test_g03_reject_nonnumeric_id PASSED                                                        [ 50%]
+test_list_products.py::test_l01_list_at_minimum_page_size PASSED                                                 [ 58%]
+test_list_products.py::test_l02_list_at_maximum_page_size PASSED                                                 [ 66%]
+test_list_products.py::test_l03_list_no_matching_sku PASSED                                                      [ 75%]
+test_list_products.py::test_list_rejects_invalid_page_size[L04-below-min] PASSED                                 [ 83%]
+test_list_products.py::test_list_rejects_invalid_page_size[L05-above-max] PASSED                                 [ 91%]
+test_list_products.py::test_list_rejects_invalid_page_size[L06-text] PASSED                                      [100%]
+
+================================================= 12 passed in 4.23s ==================================================
+
+Runner exit code: 0
