@@ -23,7 +23,8 @@ UI testing/
 ├── requirements.txt
 ├── pytest.ini
 ├── conftest.py             
-├── .env.example            
+├── .env.example            # copy to .env and fill in the staff account
+├── .gitignore              
 ├── pages/
 │   ├── base.py             
 │   ├── staff.py            
@@ -31,7 +32,10 @@ UI testing/
 ├── test_tc_sys_01_coupon_checkout.py
 ├── test_tc_sys_02_stock_limit_cancel.py
 ├── test_tc_sys_03_review_moderation.py
-└── screenshots/           
+├── report.html             # HTML report of run 1
+├── run-1.txt, run-2.txt    # full output of two runs in a row
+├── run-ids.txt            
+└── screenshots/          
 ```
 
 ## How to run the tests
@@ -70,10 +74,14 @@ HEADLESS=1 pytest              # Windows PowerShell: $env:HEADLESS="1"; pytest
 To show that the tests pass on every run, run the suite twice in a row. Each run creates new data, so both runs pass:
 
 ```bash
-pytest && pytest
+python -m pytest --color=no --html=report.html --self-contained-html 2>&1 | tee run-1.txt
+python -m pytest --color=no 2>&1 | tee run-2.txt
+grep -H "RUNID=\|passed\|failed" run-1.txt run-2.txt > run-ids.txt
 ```
 
-- **Recording.** In addition to the screenshots, a screen recording of a full run is linked here: [Screen recordings on Google Drive](https://drive.google.com/drive/folders/16xQMdS-swOEKb0qY0ahKituVIeLVvO9D?usp=sharing)
+## Screen recording
+
+In addition to the screenshots, a screen recording of a full run of each test is here: [Screen recordings on Google Drive](https://drive.google.com/drive/folders/16xQMdS-swOEKb0qY0ahKituVIeLVvO9D?usp=sharing)
 
 ## Results
 
@@ -81,7 +89,7 @@ Run on 17 Nov 2026 with `python -m pytest`, twice in a row:
 
 | Run | Result | Output |
 |---|---|---|
-| 1 | 3 passed in 119.37s | run-1.txt, report.html |
-| 2 | 3 passed in 112.33s | run-2.txt |
+| 1 | 3 passed in 114.72s | run-1.txt, report.html |
+| 2 | 3 passed in 104.49s | run-2.txt |
 
 Each run used new data (RUNIDs in run-ids.txt), so all tests pass on every run.

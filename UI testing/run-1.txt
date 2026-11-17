@@ -1,15 +1,15 @@
 ============================= test session starts ==============================
-platform darwin -- Python 3.12.2, pytest-9.2.0, pluggy-1.7.0 -- /Users/mn/Desktop/G02-UI-testing/.venv/bin/python
+platform darwin -- Python 3.12.2, pytest-9.2.0, pluggy-1.7.0 -- /Users/mn/Desktop/UI testing/.venv/bin/python
 cachedir: .pytest_cache
 metadata: {'Python': '3.12.2', 'Platform': 'macOS-26.2-arm64-arm-64bit', 'Packages': {'pytest': '9.2.0', 'pluggy': '1.7.0'}, 'Plugins': {'metadata': '3.1.1', 'html': '4.2.0'}, 'JAVA_HOME': '/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home'}
-rootdir: /Users/mn/Desktop/G02-UI-testing
+rootdir: /Users/mn/Desktop/UI testing
 configfile: pytest.ini
 testpaths: .
 plugins: metadata-3.1.1, html-4.2.0
 collecting ... collected 3 items
 
 test_tc_sys_01_coupon_checkout.py::test_tc_sys_01_coupon_guest_checkout 
-RUNID=20261117-172340  product=G02-Test-Watch-20261117-172340  coupon=g02save10-20261117-172340
+RUNID=20261117-204141  product=G02-Test-Watch-20261117-204141  coupon=g02save10-20261117-204141
   Step 1: staff logs in
   Step 2: Products menu
   Step 3: Add New Product
@@ -30,13 +30,13 @@ RUNID=20261117-172340  product=G02-Test-Watch-20261117-172340  coupon=g02save10-
     coupon error: 'Coupon "g02-invalid" cannot be applied because it does not exist.'
   Step 17: valid coupon applied
   Step 18: same coupon again rejected
-    coupon error: 'Coupon code "g02save10-20261117-172340" has already been applied.'
+    coupon error: 'Coupon code "g02save10-20261117-204141" has already been applied.'
   Step 19: checkout page
   Step 20: browser Back returns to the cart
   Step 21: empty Town/City is rejected
     city error: 'Please enter a valid town / city'
   Step 22: order placed
-  Step 23: order number 691
+  Step 23: order number 763
   Step 24: WooCommerce > Orders
   Step 25: open the order
   Step 26: coupon, total and payment method
@@ -46,7 +46,7 @@ RUNID=20261117-172340  product=G02-Test-Watch-20261117-172340  coupon=g02save10-
   Step 30: guest refreshes the confirmation page
 PASSED
 test_tc_sys_02_stock_limit_cancel.py::test_tc_sys_02_stock_limit_and_cancel 
-RUNID=20261117-172431  product=G02-Limited-Stock-Product-20261117-172431
+RUNID=20261117-204230  product=G02-Limited-Stock-Product-20261117-204230
   Step 1: staff logs in
   Step 2: Products menu
   Step 3: Add New Product
@@ -65,7 +65,7 @@ RUNID=20261117-172431  product=G02-Limited-Stock-Product-20261117-172431
   Step 15: checkout page
   Step 16: billing details + Cash on delivery
   Step 17: place order
-  Step 18: order number 694
+  Step 18: order number 765
   Step 19: WooCommerce > Orders
   Step 20: open the order
   Step 21: stock is now 1
@@ -76,7 +76,7 @@ RUNID=20261117-172431  product=G02-Limited-Stock-Product-20261117-172431
   Step 26: guest refreshes the confirmation page
 PASSED
 test_tc_sys_03_review_moderation.py::test_tc_sys_03_review_moderation 
-RUNID=20261117-172512  product=G02-Review-Test-Product-20261117-172512
+RUNID=20261117-204309  product=G02-Review-Test-Product-20261117-204309
   Step 1: staff logs in
   Step 2: Products menu
   Step 3: Add New Product
@@ -93,13 +93,13 @@ RUNID=20261117-172512  product=G02-Review-Test-Product-20261117-172512
   Step 13: valid review
   Step 14: review marked as awaiting, count still 0
   Step 15: Products > Reviews
-    counts before: {'pending': 3, 'approved': 10}
+    counts before: {'pending': 3, 'approved': 14}
   Step 16: review is in Pending
   Step 17: approve it
-    counts after: {'pending': 2, 'approved': 11}
+    counts after: {'pending': 2, 'approved': 15}
   Step 18: review is in Approved
   Step 19: guest refreshes the product page
 PASSED
 
--- Generated html report: file:///Users/mn/Desktop/G02-UI-testing/report.html --
-======================== 3 passed in 119.37s (0:01:59) =========================
+--- Generated html report: file:///Users/mn/Desktop/UI%20testing/report.html ---
+======================== 3 passed in 114.72s (0:01:54) =========================
