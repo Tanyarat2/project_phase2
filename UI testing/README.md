@@ -73,7 +73,7 @@ To show that the tests pass on every run, run the suite twice in a row. Each run
 pytest && pytest
 ```
 
-- **Recording.** In addition to the screenshots, a screen recording of a full run is linked here: `<https://drive.google.com/drive/folders/16xQMdS-swOEKb0qY0ahKituVIeLVvO9D?usp=sharing>`.
+- **Recording.** In addition to the screenshots, a screen recording of a full run is linked here: [Screen recordings on Google Drive](https://drive.google.com/drive/folders/16xQMdS-swOEKb0qY0ahKituVIeLVvO9D?usp=sharing)
 
 ## Results
 
