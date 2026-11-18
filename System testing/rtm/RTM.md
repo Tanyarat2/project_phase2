@@ -57,5 +57,3 @@ These shop features are not part of the three scenarios:
 - Customer order history in My Account
 - Order notes to the customer
 - Shipping methods (the shop uses Cash on delivery only)
-
-Before submission, rename the features to match the shop guide on MyCourses. Add any feature from the guide that is missing, to this list or to the tables.
