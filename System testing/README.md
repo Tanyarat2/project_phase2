@@ -50,9 +50,9 @@ Screenshots of these checks are in `screenshots/preparation/`.
 | Test case | Executed on | Run ID | Order | Total steps | Passed | Failed | Blocked | Result | Defects |
 |---|---|---|---|---:|---:|---:|---:|---|---|
 | TC-SYS-01 | 16 Nov 2026, 16:06 | `20261116-160636` | `#507` | 30 | 30 | 0 | 0 | Pass | None |
-| TC-SYS-02 | 16 Nov 2026, 19:46 | `20261116-194618` | `#534` | 26 | | | | | |
-| TC-SYS-03 | 16 Nov 2026, 21:14 | `20261116-211430` | - | 19 | | | | | |
-| **Total** | | | | **75** | | | | | |
+| TC-SYS-02 | 16 Nov 2026, 19:46 | `20261116-194618` | `#534` | 26 | 26 | 0 | 0 | Pass | None |
+| TC-SYS-03 | 16 Nov 2026, 21:14 | `20261116-211430` | - | 19 | 19 | 0 | 0 | Pass | None |
+| **Total** | | | | **75** | **75** | | | | |
  
 ## Results
  
