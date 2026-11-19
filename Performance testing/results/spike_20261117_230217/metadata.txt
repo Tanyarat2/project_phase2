@@ -1,0 +1,4 @@
+Test: spike 
+Target: http://157.85.102.236/shop 
+Script: spike.js 
+k6 exit code: 99 

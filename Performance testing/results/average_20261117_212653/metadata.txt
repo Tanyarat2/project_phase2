@@ -1,0 +1,4 @@
+Test: average 
+Target: http://157.85.102.236/shop 
+Script: average_load.js 
+k6 exit code: 99 

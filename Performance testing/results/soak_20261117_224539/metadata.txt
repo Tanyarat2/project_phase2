@@ -1,0 +1,4 @@
+Test: soak 
+Target: http://157.85.102.236/shop 
+Script: soak.js 
+k6 exit code: 0 
