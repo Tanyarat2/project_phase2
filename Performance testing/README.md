@@ -22,20 +22,6 @@ Thresholds used in all four tests:
 | Soak | `soak.js` | 2 VUs, 15 min | Check performance over time |
 | Spike | `spike.js` | 1 VU (45 sec) -> 6 VUs (20 sec) -> 1 VU (120 sec) | Measure recovery after sudden load |
 
-## How to run
-
-Install k6, open PowerShell in this folder and run one test at a time:
-
-```powershell
-.\run-tests.cmd average
-.\run-tests.cmd stress
-.\run-tests.cmd soak
-.\run-tests.cmd spike
-```
-
-The runner saves `summary.json`, `console.txt` and local/UTC run times in dated
-folders under `results/`. It asks for confirmation before each full test.
-`smoke.js` is a short 1-VU check for the class demo, not a fifth required test.
 
 ## Actual results
 
