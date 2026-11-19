@@ -1,7 +1,6 @@
 # Performance Testing - ITCS386 Group 02
 
 We tested the WooCommerce shop at `http://157.85.102.236/shop/` using **k6**.
-This folder contains the work of Members 4 and 5 only.
 
 ## Test design
 
@@ -112,13 +111,3 @@ second in the first recovery window but exceeded the threshold again after
    Soak but failed in Average-load and Spike. `vus_max` is the maximum number
    of VUs allocated by k6 (3, 5, 2, 6), **not** proven server capacity.
 
-## Notes on different results
-
-Average-load at 3 VUs had p95 = 1404.22 ms, while the 3-VU stress stage had
-p95 = 550.29 ms. The tests ran at different times and for different durations.
-Other groups' activity and caching may explain part of the difference, but
-the exact cause is unknown. We kept both results without changing thresholds.
-
-All four original `summary.json` files are included under `results/`. Average,
-Soak and Spike also have their original `console.txt` files. The original
-Stress `console.txt` was not supplied, but its genuine `summary.json` is present.
