@@ -22,13 +22,13 @@ UI testing/
 ├── README.md
 ├── requirements.txt
 ├── pytest.ini
-├── conftest.py             
+├── conftest.py             # browsers staff + customer
 ├── .env.example            # copy to .env and fill in the staff account
 ├── .gitignore              
 ├── pages/
-│   ├── base.py             
-│   ├── staff.py            
-│   └── customer.py         
+│   ├── base.py             # waits, fill/click helpers, screenshots, RUNID
+│   ├── staff.py            # WordPress Admin actions
+│   └── customer.py         # storefront actions
 ├── test_tc_sys_01_coupon_checkout.py
 ├── test_tc_sys_02_stock_limit_cancel.py
 ├── test_tc_sys_03_review_moderation.py
