@@ -97,3 +97,102 @@ second in the first recovery window but exceeded the threshold again after
    Soak but failed in Average-load and Spike. `vus_max` is the maximum number
    of VUs allocated by k6 (3, 5, 2, 6), **not** proven server capacity.
 
+
+---
+
+## Extended Stress Test - 21 November 2026
+
+We extended the original stress test to investigate the point
+where p95 response time exceeds one second.
+
+### Test Configuration
+
+- Virtual users: 1, 2, 3, 5, 7, and 10
+- Planned duration: 50 seconds per stage
+- Latency threshold: p95 < 1000 ms
+- HTTP failure threshold: < 2%
+- Functional checks: > 98%
+- Customer journey: storefront, browsing, searching,
+  product details, and product page
+
+### Latest Functionally Valid Results
+
+| VUs | p95 Response Time | HTTP Error Rate | Result |
+|---|---:|---:|---|
+| 1 | 490.57 ms | 0% | Pass |
+| 2 | 474.29 ms | 0% | Pass |
+| 3 | 517.11 ms | 0% | Pass |
+| 5 | 697.39 ms | 0% | Pass |
+| 7 | 974.77 ms | 0% | Pass |
+| 10 | Approximately 1570 ms | 0% | Fail |
+
+### Summary
+
+- HTTP requests: 1,721
+- HTTP failures: 0
+- Functional checks passed: 2,753/2,753 (100%)
+- Customer journey failure rate: 0%
+- Overall p95: approximately 1.07 seconds
+- First failing tested level: 10 VUs
+
+The final 10-VU stage stopped after approximately
+42 of its planned 50 seconds because the latency
+threshold was exceeded.
+
+### Assignment Question 1
+
+How many VUs can the system serve before response
+time exceeds one second?
+
+In the latest valid run, p95 remained below one
+second through 7 VUs. At 10 VUs, p95 reached
+approximately 1.57 seconds.
+
+Therefore, 7 VUs was the highest tested level
+that passed in this run. The exact boundary
+between 7 and 10 VUs remains unknown.
+
+### Assignment Question 2
+
+At how many VUs does the stress test start
+showing problems?
+
+The latest valid run first exceeded the latency
+threshold at 10 VUs.
+
+However, an earlier run exceeded the threshold
+at 7 VUs, demonstrating variation between runs.
+
+### Additional Observations
+
+A separate run showed 672 failed customer
+journeys out of 691 despite a 0% HTTP error rate.
+
+That run is retained as evidence of an
+unexpected functional failure. Its unusually
+low response times are not used to demonstrate
+successful system capacity.
+
+The shared-server environment may contribute
+to variation, but the exact cause has not
+been confirmed.
+
+### Limitations
+
+- Other groups share the same server.
+- No production workload data was available.
+- The latest 10-VU stage ended before 50 seconds.
+- We did not test 8 or 9 VUs.
+- Results do not establish maximum server capacity.
+
+### Evidence
+
+The original k6 summaries and run timestamps
+are preserved under the results directory.
+
+The latest valid extended stress summary is in:
+
+results/stress10_20261121_164507/summary.json
+
+This section supersedes earlier stress-capacity
+conclusions where the results differ.

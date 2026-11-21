@@ -18,3 +18,23 @@ bin-release/
 # information for Eclipse / Flash Builder.
 
 .DS_Store
+
+# BEGIN ITCS386_K6_CLEANUP
+# Ignore generated k6 terminal captures; retain all real summary.json and timestamps.
+/Performance testing/results/**/console.txt
+/Performance testing/results/**/debug*.log
+/Performance testing/results/**/raw*.json
+/Performance testing/diagnose_store.js
+/Performance testing/results/**/temporary_*
+# Python analysis caches and local environments
+__pycache__/
+*.py[cod]
+.venv/
+# Local-only test/IDE clutter
+.vscode/
+.idea/
+*.swp
+*.tmp
+Thumbs.db
+.DS_Store
+# END ITCS386_K6_CLEANUP

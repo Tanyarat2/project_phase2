@@ -89,3 +89,18 @@ The saved full-run output in [results.txt](API%20testing/results.txt) records a 
 The shop returned the expected fields for valid product requests and the expected errors for a duplicate SKU, an invalid product type, missing and malformed IDs, and invalid page sizes. An expected `400` or `404` response passes its test when its status and error fields match the assertions. The recorded run found no defects in these tested cases; it does not establish that the entire API is defect-free.
 
 There were no failing tests to classify as system defects or test mistakes. If a later run fails, record that classification for each failure. For a system defect, include the request, expected result, and actual result, as required by the assignment.
+
+<!-- ITCS386_PERFORMANCE_BEGIN -->
+## Performance Testing (k6) — Group 02
+
+Four k6 workloads cover Average-load, Stress, Soak and Spike on the shared WooCommerce shop. The full design, instructions, original k6 summaries and analyses are in **[Performance testing/README.md](Performance%20testing/README.md)**.
+
+| Test | Recorded finding |
+| :--- | :--- |
+| Average-load (3 VUs, 2 min) | p95 **1,404.22 ms** — latency threshold breached |
+| Extended Stress (up to 10 VUs) | Latest valid run: **7 VUs p95 974.77 ms (pass)**; **10 VUs p95 ~1.57 s (fail)**; 0 HTTP errors and 100% functional checks. A separate run breached p95 at 7 VUs, so the boundary is variable. |
+| Soak (2 VUs, 15 min) | p95 **875.79 ms** overall; **2/2,510 HTTP failures**; no progressive degradation observed |
+| Spike (1 → 6 → 1 VUs) | p95 **1,121.82 ms** overall; stable recovery was **not confirmed within 120 s** |
+
+The shared-server results vary by run. Do not equate `vus_max` with server capacity or interpret HTTP 200 as functional success without content checks. **Original `summary.json` outputs are retained as evidence.**
+<!-- ITCS386_PERFORMANCE_END -->
